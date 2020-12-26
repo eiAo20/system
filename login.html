@@ -1,0 +1,117 @@
+
+<html>
+<head>
+	<title>登录界面</title>
+	<style>
+		body{
+			margin: 0;
+			padding: 0;
+			background-image:url(25.png);
+			background-size: 100% auto;
+			background-repeat: no-repeat
+		}
+		#field{
+			text-align: center;
+			margin: 0 auto;
+			padding: 20px 50px; 
+			margin-top: 150px;
+			width: 400px;
+			height: 300px;
+			background-color: #00000090
+		}
+		
+		a:visited{
+			color: orange
+		}
+		a:hover{
+			color: red
+		}
+		h1{
+			color: white
+		}
+		.bigBox{
+			position: relative
+		}
+		.inputBox{
+			margin-top: 15px;
+		}
+		#icon{
+			position: relative}
+		.inputBox img{
+			width: 20px;
+			position: absolute;
+			top:29px;
+			right: 110px;
+		}
+		.inputText{
+			margin-top: 20px;
+			
+			border: 0;
+			padding: 10px 10px;
+			border-bottom: 1px solid white;
+			background-color: #00000000;
+			color: white}
+		#login{
+			border: 0;
+			width: 150px;
+			height: 25px;
+			color: white;
+			margin-top: 30px;
+			border-radius: 20px;
+		background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
+		}
+		#user{
+			position: absolute;
+			width: 22px;
+			top:28px;
+			left:80px;
+		}
+		#password{
+			position: absolute;
+			width: 22px;
+			top:100px;
+			left:80px;
+		}
+		
+	</style>
+	</head>
+	<body>
+<div id = "field">
+	<h1>LOGIN</h1>
+	<div class = "bigBox">
+		<img id = "user"src = "icon/user.svg">
+		<img id = "password" src = "icon/password.svg">
+	<div class = "inputBox">
+		<input class = "inputText" type = "text"placeholder="User name"autocomplete = "off" autofocus name = "user">
+	</div>
+		<pre></pre>
+	<div class = "inputBox" id = "icon">
+
+		<img src = "icon/display.svg" alt = "hide password">
+		<input class="inputText" type="password" placeholder="Password">
+	</div>
+	<pre></pre>
+	<input type="submit" value="login" id="login">
+
+		</div>
+	</div>
+	<script>
+		var hide = document.getElementsByTagName('img')
+		var password = document.getElementsByTagName('input')
+		var flag = 0;
+		hide[2].onclick = function(){
+			if(flag==0){
+			hide[2].src = 'icon/hide.svg';
+			password[1].type = 'text';
+			flag=1;
+			}else{
+				hide[2].src = 'icon/display.svg';
+				password[1].type = 'password';
+				flag=0;
+			}
+		}
+	</script>
+
+</body>
+</html>
+
