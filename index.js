@@ -16,12 +16,8 @@ login.onclick = function(){
 			for(var j = 0;j < datas.length;j++){
 				if(text[1].value == datas[j].password){
 					window.location.href = '1.html'
-				}else{
-					alert('密码错误')
 				}	
 			}
-		}else{
-			alert('账号错误')
 		}
 	}
 }
