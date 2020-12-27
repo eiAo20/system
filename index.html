@@ -1,7 +1,9 @@
 
 <html>
+	
 <head>
 	<meta charset="utf-8">
+	
 	<title>登录界面</title>
 	<style>
 		body{
@@ -19,7 +21,7 @@
 			width: 400px;
 			height: 300px;
 			background-color: #00000090;
-			border-radius:10px;
+			border-radius: 10px;
 		}
 		
 		a:visited{
@@ -81,39 +83,38 @@
 <div id = "field">
 	<h1>LOGIN</h1>
 	<div class = "bigBox">
-		<img id = "user"src = "user.svg">
-		<img id = "password" src = "password.svg">
-	<div class = "inputBox">
-		<input class = "inputText" type = "text"placeholder="User name"autocomplete = "off" autofocus name = "user">
+		<img id = "user" src = "icon/user.svg">
+		<img id = "password" src = "icon/password.svg">
+		<div class = "inputBox">
+			<input class = "inputText" type = "text"placeholder="User name"autocomplete = "off" autofocus name = "userName">
+		</div><pre></pre>
+		<div class = "inputBox" id = "icon">
+			<img src = "icon/display.svg" alt = "hide password">
+			<input class="inputText" type="password" placeholder="Password" name = "password">
+		</div><pre></pre>
+		<button id="login">login</button>
 	</div>
-		<pre></pre>
-	<div class = "inputBox" id = "icon">
-
-		<img src = "display.svg" alt = "hide password">
-		<input class="inputText" type="password" placeholder="Password">
-	</div>
-	<pre></pre>
-	<input type="submit" value="login" id="login">
-
-		</div>
-	</div>
+</div>
 	<script>
 		var hide = document.getElementsByTagName('img')
 		var password = document.getElementsByTagName('input')
 		var flag = 0;
 		hide[2].onclick = function(){
-			if(flag==0){
-			hide[2].src = 'hide.svg';
+			if(flag == 0){
+			hide[2].src = 'icon/hide.svg';
 			password[1].type = 'text';
 			flag=1;
 			}else{
-				hide[2].src = 'display.svg';
+				hide[2].src = 'icon/display.svg';
 				password[1].type = 'password';
 				flag=0;
 			}
 		}
+		
 	</script>
 
 </body>
 </html>
+<script src = "index.js"></script>
+
 
