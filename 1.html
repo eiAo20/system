@@ -1,0 +1,245 @@
+<!doctype html>
+<html>
+<head>
+<script src = "1.js"></script>
+<meta charset="utf-8">
+<title>铁路车次时刻查询系统</title>
+	<style>
+		body{
+		margin: 0;
+		padding: 0;
+		background-image:url(25.png);
+		background-size: 100% auto;
+		background-repeat: no-repeat
+		}
+		#fieldSet{
+			text-align: center;
+			margin: 0 auto;
+			padding: 20px 50px; 
+			margin-top: 0px;
+			width: 400px;
+			height: 690px;
+			background-color: #00000090;
+			position: relative;
+		}
+		#time{
+			position: absolute;
+			top:10px;
+			right: 10px;
+			color: #00ff00;
+		}
+		h1{
+			color: white;
+		}
+		#cBox{
+			border: 0;
+			width: 180px;
+			height: 40px;
+			color: white;
+			border-radius: 20px;
+			background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+			position:absolute;
+			bottom: 20px;
+			left: 160px;
+		}
+		
+		a:hover{
+			color: red;
+		}
+		
+		div{
+			margin: 0;
+			padding: 0;
+		}
+		p{
+			margin: 0;
+		}
+		.disapear1{
+			display: block;
+		}
+		.disapear2{
+			display: none;
+		}
+		.hidden{
+			width: 400px;
+			height: 690px;
+			position: relative;
+		}
+		tr{
+			color: white;
+		}
+		td{
+			width: 100px;
+		}
+		tr th{
+			height: 20px;
+		}
+		.add{
+			width: 80px;
+			height: 20px;
+			background-color: #00000000;
+			border-bottom: 1px solid white;
+			color: white;
+			border-radius: 5px;
+			text-align: center;
+		}
+		#add{
+			position: absolute;
+			bottom: 5px;
+		}
+		.submit{
+			width: 80px;
+			height:25px;
+			color: white;
+			border-radius: 5px;
+			background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
+		}
+	</style>
+	
+</head>
+<body>
+	<div id = "fieldSet">
+		<div class = "disapear2">
+			<div class = "hidden">
+			<table cellpadding="0" border = "1">
+				<thead>
+					<tr>
+						<th>车站</th><th>到达</th><th>出发</th><th>操作</th>
+					</tr>
+				</thead>
+				<tbody id = "plus"></tbody>
+			</table>
+			<table id = "add">
+				<tr>
+					<td><input type="text" class = "add" name = "station" placeholder="车站"></td>
+					<td><input type="text" class = "add" name = "arrive" placeholder="到达"></td>
+					<td><input type="text" class = "add" name = "setOff" placeholder="出发"></td>
+					<td><input type="button" value = "添加" id = "adding"></td>
+				</tr>
+			</table>
+			</div>
+		</div>
+		<div class = "disapear1">
+			<div id = "time"></div>
+			<h1>铁路车次时刻查询系统</h1>
+			<pre></pre>
+			<div>
+				<table>
+					<tr>
+						<td><lable><input type="radio" name = "checi" value="d727" checked>d727</lable></td>
+						<td><lable><input type="radio" name = "checi" value="k743">k743</lable></td>
+						<td><lable><input type="radio" name = "checi" value="k1029">k1029</lable></td>
+						<td><lable><input type="radio" name = "checi" value="k1220">k1220</lable></td>
+					</tr>
+					<tr>
+						<td><lable><input type="radio" name = "checi" value="d111">d111</lable></td>
+						<td><lable><input type="radio" name = "checi" value="k111">k111</lable></td>
+						<td><lable><input type="radio" name = "checi" value="k111">d333</lable></td>
+						<td><lable><input type="radio" name = "checi" value="k111">k333</lable></td>
+					</tr>
+				</table>
+			</div>
+			<input id = "cBox" type="button" value="查询">
+		</div>
+	</div>
+
+	<script>
+		var time = document.getElementById('time')
+		time.innerHTML = getDates()
+	function getDates(){
+		var d = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六']
+				var date = new Date()
+				var year = date.getFullYear()
+				var month = date.getMonth()+1
+				var dates = date.getDate()
+				var week = date.getDay()
+				var hour = date.getHours()
+				var minute = date.getMinutes()
+				var second = date.getSeconds()
+				if(hour < 10){
+					hour = '0'+hour
+				}
+				if(minute < 10){
+					minute = '0'+minute
+				}
+				if(second < 10){
+					second = '0'+second
+				}
+				return year+'-'+month+'-'+dates+' '+d[week]+'	'+hour+':'+minute+':'+second
+			}
+		
+var cBox = document.getElementById('cBox')
+var disp = document.getElementsByTagName('div')
+cBox.onclick = function(){
+	var checi = document.getElementsByName('checi')
+		for(var i=0; i<checi.length; i++){
+			if(checi[i].checked){
+				a = checi[i].value
+			}
+		}
+		
+		console.log(a)
+		if( a == "d727"){
+			a = d727
+		}
+		if(a == "k743"){
+			a = k743
+		}
+	if(a == "k1029"){
+			a = k1029
+		}
+	if(a == "k1220"){
+			a = k1220
+		}
+		var tbody = document.querySelector('tbody')
+for(var i = 0; i< a.length;i++){
+	var tr = document.createElement('tr');
+	tbody.appendChild(tr);
+	for(var j in a[i]){
+		var td = document.createElement('td');
+		td.innerHTML = a[i][j];
+		tr.appendChild(td);
+	}
+		var td = document.createElement('td');
+		td.innerHTML = '<a href = "javascript:;">删除</a>'
+		tr.appendChild(td);
+}
+var as = document.querySelectorAll('a')
+for(var i =0;i<as.length;i++){
+	as[i].onclick = function(){
+		tbody.removeChild(this.parentNode.parentNode)
+	}
+}
+	disp[1].className = 'disapear1';
+	disp[3].className = 'disapear2';
+	var adding = document.getElementById('adding')
+	adding.onclick = function(){
+		var plus = document.getElementById('plus')
+		var add = document.getElementsByClassName('add')
+		var tr = document.createElement('tr')
+			var stationTd = document.createElement('td')
+			var arriveTd = document.createElement('td')
+			var setOffTd = document.createElement('td')
+			var aTd = document.createElement('td')
+			stationTd.innerHTML = add[0].value
+			arriveTd.innerHTML = add[1].value
+			setOffTd.innerHTML = add[2].value
+			aTd.innerHTML = '<a href = "javascript:;">删除</a>'
+			plus.appendChild(tr)
+			tr.appendChild(stationTd)
+			tr.appendChild(arriveTd)
+			tr.appendChild(setOffTd)
+			tr.appendChild(aTd)
+		var as = document.querySelectorAll('a')
+			for(var i =0;i<as.length;i++){
+	as[i].onclick = function(){
+		tbody.removeChild(this.parentNode.parentNode)
+	}
+}
+	}
+}
+
+	</script>
+	
+</body>
+</html>

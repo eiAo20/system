@@ -1,0 +1,23 @@
+var d727 = [
+	{
+		station:'北京西',
+		arrive:'--',
+		setOff:'19:59',
+	},{
+		station:'衡水',
+		arrive:'22:12',
+		setOff:'22:15'
+	},{
+		station:'南昌西',
+		arrive:'07:48',
+		setOff:'07:54'
+	},{
+		station:'赣州',
+		arrive:'11:43',
+		setOff:'11：49'
+	},{
+		station:'深圳',
+		arrive:'17:24',
+		setOff:'--'
+	}
+];
